@@ -18,13 +18,13 @@ console.log("Its working!");
 //here "this" is referring to the bio function as parent obj but bio has nothing declared in variable name
 //that's why it doesnot work
 
-const person = {
-    name :"Ram",
-    bio: ()=>{
-        return `Hey this is ${person.name}.`
-    },
+// const person = {
+//     name :"Ram",
+//     bio: ()=>{
+//         return `Hey this is ${person.name}.`
+//     },
 
-};
+// };
 
 //"this" didnot work in above case, so object name is used instead of  "this"
 
@@ -43,7 +43,52 @@ const person = {
 //you can see the console inside the bio function, this is clearly showing the parent object 
 
 
-console.log(person.name);
+// console.log(person.name);
 
-console.log(person.bio());
+// console.log(person.bio());
 
+
+
+// ===============================================
+
+// const person = ()=>{ 
+//     return{
+//         name: "Ram",
+//         address: "Sydney",
+//         bio: () => {
+//             return `Hey, this is ${person.name} from ${person.address}`;
+//         }
+//     }
+// }
+
+
+
+// const person = ()=>{ 
+//     return{
+//         name: "Ram",
+//         address: "Sydney",
+//         bio(){
+//             return `Hey, this is ${this.name} from ${this.address}`;
+//         }
+//     }
+// }
+
+const person = (a,b)=>{ 
+    return{
+        name: a,
+        address: b,
+        bio(){
+            return `Hey, this is ${this.name} from ${this.address}`;
+        }
+    }
+}
+
+
+
+const val = person("Ram", "Sydney");
+console.log(val);
+console.log(val.bio); 
+console.log(val.bio());
+
+const val2 = person("Shyam", "Sydney");
+console.log(val2.bio());
