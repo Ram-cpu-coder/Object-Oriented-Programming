@@ -209,64 +209,66 @@ console.log("Its working!");
 // it is to inherit the properties from the parent element by the child element
 
 
-const ram = {
-    name: "Ram",
-    dob: "23/3/1200",
-    pet: "dog",
-    degree: "BIT",
-}
+// const ram = {
+//     name: "Ram",
+//     dob: "23/3/1200",
+//     pet: "dog",
+//     degree: "BIT",
+// }
 
 
-//parent class
+// //parent class
 
-class parentClass{
-    constructor({name, dob}){
-        this.name = name;
-        this.dob = dob;
-    }
-}
+// class parentClass{
+//     constructor({name, dob}){
+//         this.name = name;
+//         this.dob = dob;
+//     }
+// }
 
 //inheriting the parentClass in Class Human
-class Human extends parentClass{
-    constructor({pet, degree, ...rest}){
-       super(rest);
-        this.pet = pet;
-        this.degree = degree;
-    }
+// class Human extends parentClass{
+//     constructor({pet, degree, ...rest}){
+//        super(rest);
+//         this.pet = pet;
+//         this.degree = degree;
+//     }
 
    
-    bio(){
-        return `this is ${this.name} who was born in ${this.dob} has the ${this.degree} degree.`;
-    }
-}
+//     bio(){
+//         return `this is ${this.name} who was born in ${this.dob} has the ${this.degree} degree.`;
+//     }
+// }
 
-const RamObj = new Human(ram);
-console.log(RamObj.bio());
+// const RamObj = new Human(ram);
+// console.log(RamObj.bio());
 
 
 //inheriting the class parentClass to class Animal
 
-class Animal extends parentClass{
-    constructor({owner, ...rest}){
-        super(rest);
-        this.owner = owner;
-    }
+// class Animal extends parentClass{
+//     constructor({owner, ...rest}){
+//         super(rest);
+//         this.owner = owner;
+//     }
 
-    bio(){
-        return `this is ${this.name} was born in ${this.dob}, the owner is ${this.owner}`;
-    }
-}
+//     bio(){
+//         return `this is ${this.name} was born in ${this.dob}, the owner is ${this.owner}`;
+//     }
+// }
 
-const cat = {
-    name: "Tommy",
-    dob: "234-34-343",
-    owner: "Shamy",
-}
-const myCat = new Animal(cat);
-console.log(myCat.bio());
+// const cat = {
+//     name: "Tommy",
+//     dob: "234-34-343",
+//     owner: "Shamy",
+// }
+// const myCat = new Animal(cat);
+// console.log(myCat.bio());
 
 
+//Polymorphism 
 
+// this is to multiply the 
 
 //Destructuring 
 
@@ -352,3 +354,15 @@ console.log(myCat.bio());
 // const newRam = {...ram, ...career}; 
 
 // console.log(newRam);
+
+
+
+// Write a JavaScript program to create a class called "Person" with properties for name, age and country. Include a method to display the person's details. Create two instances of the 'Person' class and display their details.
+// Write a JavaScript program to create a class called 'Rectangle' with properties for width and height. Include two methods to calculate rectangle area and perimeter. Create an instance of the 'Rectangle' class and calculate its area and perimeter.
+// Write a JavaScript program that creates a class called 'Vehicle' with properties for make, model, and year. Include a method to display vehicle details. Create a subclass called 'Car' that inherits from the 'Vehicle' class and includes an additional property for the number of doors. Override the display method to include the number of doors.
+// Write a JavaScript program that creates a class called 'Shape' with a method to calculate the area. Create two subclasses, 'Circle' and 'Triangle', that inherit from the 'Shape' class and override the area calculation method. Create an instance of the 'Circle' class and calculate its area. Similarly, do the same for the 'Triangle' class.
+// Write a JavaScript program that creates a class called BankAccount with properties for account number, account holder name, and balance. Include methods to deposit, withdraw, and transfer money between accounts. Create multiple instances of the BankAccount class and perform operations such as depositing, withdrawing, and transferring money.
+
+// Write a JavaScript program that creates a class called University with properties for university name and departments. Include methods to add a department, remove a department, and display all departments. Create an instance of the University class and add and remove departments.
+// Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
+// Write a JavaScript program that creates a class called 'Animal' with properties for species and sound. Include a method to make the animal's sound. Create a subclass called 'Dog' that inherits from the 'Animal' class and adds an additional property for color. Override the make sound method to include the dog's color. Create an instance of the 'Dog' class and make it make its sound.
