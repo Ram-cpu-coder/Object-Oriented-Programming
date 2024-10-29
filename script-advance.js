@@ -537,12 +537,22 @@ class BankAccount {
 
 const ram = new BankAccount(231423, "Ram", 0);
 const shyam = new BankAccount(1324234, "Shyam", 200);
+const Kripa = new BankAccount(234567, "Kripa", 0);
 
-ram.deposit(200);
-// ram.withdraw(100);
-ram.transfer(100, shyam);
-console.log(ram.displayBalance());
-console.log(shyam.displayBalance());
+
+Kripa.deposit(100);
+Kripa.withdraw(5);
+Kripa.transfer(50, ram);
+
+console.log(Kripa.displayBalance());
+
+Kripa.deposit(200);
+
+// ram.deposit(200);
+// // ram.withdraw(100);
+// ram.transfer(100, shyam);
+// console.log(ram.displayBalance());
+// console.log(shyam.displayBalance());
 // shyam.deposit(400);
 // shyam.withdraw(400);
 
@@ -556,7 +566,17 @@ class University{
         this.name = name;
         this.department = department;
     }
-    displayDepartment(){}
+    displayDepartment(){
+        return `The name of the university is ${this.name} and it has the following departments: ${this.department}`
+    }
+    addDepartment(department){
+
+    }
 }
+
+const university1 = new University("ABC", "Science");
+console.log(university1.displayDepartment());
+
+// ===================================================
 // Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
 // Write a JavaScript program that creates a class called 'Animal' with properties for species and sound. Include a method to make the animal's sound. Create a subclass called 'Dog' that inherits from the 'Animal' class and adds an additional property for color. Override the make sound method to include the dog's color. Create an instance of the 'Dog' class and make it make its sound.
