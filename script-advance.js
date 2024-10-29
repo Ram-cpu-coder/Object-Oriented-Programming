@@ -360,23 +360,47 @@ console.log("Its working!");
 // Write a JavaScript program to create a class called "Person" with properties for name, age and country. Include a method to display the person's details. Create two instances of the 'Person' class and display their details.
 
 
-class Person{
-    constructor(name, age, country){
-        this.name = name;
-        this.age = age;
-        this.country = country;
-    }
-    bio(){
-        return `This is ${this.name} aged ${this.age} from ${this.country}.`;
-    }
-}
-const Person1 = new Person("Shyam", 23, "Sydney");
-const Person2 = new Person("Ram", 23, "Nepal");
-console.log(Person1.bio());
-console.log(Person2.bio());
+// class Person{
+//     constructor(name, age, country){
+//         this.name = name;
+//         this.age = age;
+//         this.country = country;
+//     }
+//     bio(){
+//         return `This is ${this.name} aged ${this.age} from ${this.country}.`;
+//     }
+// }
+// const Person1 = new Person("Shyam", 23, "Sydney");
+// const Person2 = new Person("Ram", 23, "Nepal");
+// console.log(Person1.bio());
+// console.log(Person2.bio());
 
 // ===================================================
 // Write a JavaScript program to create a class called 'Rectangle' with properties for width and height. Include two methods to calculate rectangle area and perimeter. Create an instance of the 'Rectangle' class and calculate its area and perimeter.
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+    area(){
+        return `The area of the rectangle is ${this.width * this.height}`;
+    }
+    perimeter(){
+        return `The perimeter of the rectangle is ${2*(this.width + this.height)}`
+    }
+}
+
+const rectangle1 = new Rectangle(2, 2);
+const rectangle2 = new Rectangle(5,3);
+
+console.log(rectangle1.area());
+console.log(rectangle1.perimeter());
+
+console.log(rectangle2.area());
+console.log(rectangle2.perimeter());
+
+// ===================================================
 // Write a JavaScript program that creates a class called 'Vehicle' with properties for make, model, and year. Include a method to display vehicle details. Create a subclass called 'Car' that inherits from the 'Vehicle' class and includes an additional property for the number of doors. Override the display method to include the number of doors.
 // Write a JavaScript program that creates a class called 'Shape' with a method to calculate the area. Create two subclasses, 'Circle' and 'Triangle', that inherit from the 'Shape' class and override the area calculation method. Create an instance of the 'Circle' class and calculate its area. Similarly, do the same for the 'Triangle' class.
 // Write a JavaScript program that creates a class called BankAccount with properties for account number, account holder name, and balance. Include methods to deposit, withdraw, and transfer money between accounts. Create multiple instances of the BankAccount class and perform operations such as depositing, withdrawing, and transferring money.
