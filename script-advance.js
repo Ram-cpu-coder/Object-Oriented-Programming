@@ -485,6 +485,70 @@ console.log("Its working!");
 // ===================================================
 // Write a JavaScript program that creates a class called BankAccount with properties for account number, account holder name, and balance. Include methods to deposit, withdraw, and transfer money between accounts. Create multiple instances of the BankAccount class and perform operations such as depositing, withdrawing, and transferring money.
 
+class BankAccount {
+    constructor(accNumber, accHolderName, balance){
+        this.accNumber = accNumber;
+        this.accHolderName = accHolderName;
+        this.balance = balance;
+    }
+
+    deposit(amount){
+        if(amount > 0){
+            this.balance += amount;
+            console.log(`You deposited $${amount} in Account Number ${this.accNumber} under the name of ${this.accHolderName} and your current balance is $${this.balance}.`);
+        }else{
+            console.log("The amount must be positive."); 
+        }
+     
+    }
+
+    withdraw(amount){
+        if(amount > 0 && this.balance >= amount){
+            this.balance -= amount;
+            console.log(`You have withdrawn $${amount} from Account number ${this.accNumber} with name ${this.accHolderName} and your current balance is $${this.balance}.`);
+        }else if(amount > 0 && this.balance < amount){
+            console.log(`Sorry, you don't have enough balance!!!`);
+            
+        }else{
+            console.log(`Please enter the positive number!!!`);
+            
+        }
+    }
+
+    transfer(amount, targetAccount){
+        if(amount > 0 && this.balance >= amount){
+            this.balance -= amount;
+            targetAccount.balance += amount;
+
+            console.log(`Successful! You have transferred $${amount} from Account Number ${this.accNumber} to Account Number ${targetAccount.accNumber} and your current balance is $${this.balance}.`);  
+        }else if(this.balance < amount){
+            console.log(`Sorry! you don't have enough balance.`);
+            
+        }else{
+            console.log(`Please enter the positive number.`);
+            
+        }
+    }
+
+    displayBalance(){
+        return `Your Current balance is $${this.balance}.`; 
+    }
+}
+
+const ram = new BankAccount(231423, "Ram", 0);
+const shyam = new BankAccount(1324234, "Shyam", 200);
+
+ram.deposit(200);
+// ram.withdraw(100);
+ram.transfer(100, shyam);
+console.log(ram.displayBalance());
+console.log(shyam.displayBalance());
+// shyam.deposit(400);
+// shyam.withdraw(400);
+
+
+// ===================================================
+
 // Write a JavaScript program that creates a class called University with properties for university name and departments. Include methods to add a department, remove a department, and display all departments. Create an instance of the University class and add and remove departments.
 // Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
 // Write a JavaScript program that creates a class called 'Animal' with properties for species and sound. Include a method to make the animal's sound. Create a subclass called 'Dog' that inherits from the 'Animal' class and adds an additional property for color. Override the make sound method to include the dog's color. Create an instance of the 'Dog' class and make it make its sound.
