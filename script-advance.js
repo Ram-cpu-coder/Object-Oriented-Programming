@@ -207,27 +207,63 @@ console.log("Its working!");
 
 //Inheritence 
 // it is to inherit the properties from the parent element by the child element
-// const ram = {
-//     name: "Ram",
-//     dob: "23/3/1200",
-//     pet: "dog",
-//     degree: "BIT",
-// // }
-// class Human{
-//     constructor({name, dob, pet, degree}){
-//         this.name
-//         this.dob
-//         this.pet
-//         this.degree
-//     }
-//     bio(){
-//         return `this is ${this.name} was born in ${this.dob} has the ${this.degree}`;
-//     }
-// }
 
-// const RamObj = new Human(ram);
-// RamObj.bio();
-// console.log(RamObj);
+
+const ram = {
+    name: "Ram",
+    dob: "23/3/1200",
+    pet: "dog",
+    degree: "BIT",
+}
+
+
+//parent class
+
+class parentClass{
+    constructor({name, dob}){
+        this.name = name;
+        this.dob = dob;
+    }
+}
+
+//inheriting the parentClass in Class Human
+class Human extends parentClass{
+    constructor({pet, degree, ...rest}){
+       super(rest);
+        this.pet = pet;
+        this.degree = degree;
+    }
+
+   
+    bio(){
+        return `this is ${this.name} who was born in ${this.dob} has the ${this.degree} degree.`;
+    }
+}
+
+const RamObj = new Human(ram);
+console.log(RamObj.bio());
+
+
+//inheriting the class parentClass to class Animal
+
+class Animal extends parentClass{
+    constructor({owner, ...rest}){
+        super(rest);
+        this.owner = owner;
+    }
+
+    bio(){
+        return `this is ${this.name} was born in ${this.dob}, the owner is ${this.owner}`;
+    }
+}
+
+const cat = {
+    name: "Tommy",
+    dob: "234-34-343",
+    owner: "Shamy",
+}
+const myCat = new Animal(cat);
+console.log(myCat.bio());
 
 
 
@@ -282,37 +318,37 @@ console.log("Its working!");
 
 
 // ===========REST=====================
-const ram = {
-    name: "Ram",
-    dob: "23/3/1200",
-    pet: "dog",
-    degree: "BIT",
+// const ram = {
+//     name: "Ram",
+//     dob: "23/3/1200",
+//     pet: "dog",
+//     degree: "BIT",
     
-}
-console.log(ram); //just giving the output of the obj ram
+// }
+// console.log(ram); //just giving the output of the obj ram
 
 // const newRam = ram; // this is the shallow copy
 // ram.name ="Shyam"; //overriding the value of property name of the object called "ram"
 
 // console.log(newRam); //here the overriding still can be seen 
 
-const {partner, ...rest} = ram; /// using the rest method to destructure the object and also overriding the partner property
+// const {partner, ...rest} = ram; /// using the rest method to destructure the object and also overriding the partner property
 
 
-console.log({partner, ...rest});
+// console.log({partner, ...rest});
 
 
 //in case of destructuring two objects
 
-const career = {
-    job: " developer",
-    title: "Designer",
-}
+// const career = {
+//     job: " developer",
+//     title: "Designer",
+// }
 
 // const newRam = {ram, career}; 
 
 //to spread all of the property 
 
-const newRam = {...ram, ...career}; 
+// const newRam = {...ram, ...career}; 
 
-console.log(newRam);
+// console.log(newRam);
