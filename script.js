@@ -28,6 +28,8 @@
 
 //immediately invoked function 
 
-(()=>{
-console.log("Hello");
-})()
+// (()=>{
+// console.log("Hello");
+// })()
+
+
