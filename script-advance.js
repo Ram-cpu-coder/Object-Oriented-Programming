@@ -32,7 +32,7 @@ console.log("Its working!");
 //     name :"Ram",
 //     bio(){
 //         console.log(this);
-        
+
 //         return `Hey this is ${this.name}.`
 //     },
 
@@ -73,22 +73,125 @@ console.log("Its working!");
 //     }
 // }
 
-const person = (a,b)=>{ 
-    return{
-        name: a,
-        address: b,
-        bio(){
-            return `Hey, this is ${this.name} from ${this.address}`;
-        }
+
+
+//it is done to make multiple objects effectively faster
+
+// const person = (a,b)=>{ 
+//     return{
+//         name: a,
+//         address: b,
+//         bio(){
+//             return `Hey, this is ${this.name} from ${this.address}`;
+//         }
+//     }
+// }
+
+
+
+// const val = person("Ram", "Sydney");
+// console.log(val);
+// console.log(val.bio); 
+// console.log(val.bio());
+
+// const val2 = person("Shyam", "Melbourne");
+// console.log(val2.bio());
+
+
+
+
+// ================================CLass======
+///class based OOP
+// the name of the class should always start with uppercase
+//the variables should be started with "this."
+// to make the use of the class , we have to instanteous using "new" keyword
+
+// we can create the obj inside the constructor
+//then only we can run the value
+
+// class Person {
+
+//     constructor() {
+//         this.name = "Ram"
+//         this.address = "Sydney"
+
+//     }
+
+//     bio() {
+//         return "this is my info";
+//     }
+// }
+
+
+// class Person {
+
+//     constructor(name, add) {
+//         this.name = name;
+//         this.address = add;
+
+//     }
+
+//     bio() {
+//         return "this is my info";
+//     }
+// }
+
+
+// class Person {
+
+//         constructor(name, add) {
+//             this.name = name;
+//             this.address = add;
+
+//         }
+
+//         bio() {
+//             return "this is my info";
+//         }
+
+//         upperCase(){
+//             this.name = this.name.toUpperCase();
+//         }
+//     }
+
+
+
+// class Person {
+
+//     constructor(name, add) {
+//         this.name = name;
+//         this.address = add;
+
+//     }
+
+//     bio() {
+//         return "this is my info";
+//     }
+// }
+
+
+
+class Person {
+
+    #secret;
+    constructor(name, add) {
+        this.name = name;
+        this.address = add;
+        this.#secret = "sdfjlks";
+    }
+
+    bio() {
+        return `Hi, this is ${this.name} from ${this.address} and the secret is ${this.#secret}`;
     }
 }
 
+const ramInfo = new Person("Ram", "Sydney");
 
+ramInfo.phone = 832493;  ///overriding the new property
 
-const val = person("Ram", "Sydney");
-console.log(val);
-console.log(val.bio); 
-console.log(val.bio());
+// ramInfo.upperCase();
+console.log(ramInfo);
 
-const val2 = person("Shyam", "Sydney");
-console.log(val2.bio());
+console.log(ramInfo.name);
+console.log(ramInfo.secret);// this wont be accessed by the instantaneious object as it is secret and it cannot be manipulated as well.
+
