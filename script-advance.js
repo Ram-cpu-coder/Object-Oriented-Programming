@@ -171,29 +171,29 @@ console.log("Its working!");
 
 
 
-class Person {
+// class Person {
 
-    #secret;
-    constructor(name, add) {
-        this.name = name;
-        this.address = add;
-        this.#secret = "sdfjlks";
-    }
+//     #secret;
+//     constructor(name, add) {
+//         this.name = name;
+//         this.address = add;
+//         this.#secret = "sdfjlks";
+//     }
 
-    bio() {
-        return `Hi, this is ${this.name} from ${this.address} and the secret is ${this.#secret}`;
-    }
-}
+//     bio() {
+//         return `Hi, this is ${this.name} from ${this.address} and the secret is ${this.#secret}`;
+//     }
+// }
 
-const ramInfo = new Person("Ram", "Sydney");
+// const ramInfo = new Person("Ram", "Sydney");
 
-ramInfo.phone = 832493;  ///overriding the new property
+// ramInfo.phone = 832493;  ///overriding the new property
 
-// ramInfo.upperCase();
-console.log(ramInfo);
+// // ramInfo.upperCase();
+// console.log(ramInfo);
 
-console.log(ramInfo.name);
-console.log(ramInfo.secret);// this wont be accessed by the instantaneious object as it is secret and it cannot be manipulated as well.
+// console.log(ramInfo.name);
+// console.log(ramInfo.secret);// this wont be accessed by the instantaneious object as it is secret and it cannot be manipulated as well.
 
 
 // =========================================
@@ -230,26 +230,29 @@ console.log(ramInfo.secret);// this wont be accessed by the instantaneious objec
 // console.log(RamObj);
 
 
+
+
 //Destructuring 
 
-const ram = {
-    name: "Ram",
-    dob: "23/3/1200",
-    pet: "dog",
-    degree: "BIT",
-}
-console.log(ram);
-console.log(ram.name);
-console.log(ram["name"]);
+// const ram = {
+//     name: "Ram",
+//     dob: "23/3/1200",
+//     pet: "dog",
+//     degree: "BIT",
+// }
+// console.log(ram);
+// console.log(ram.name);
+// console.log(ram["name"]);
 
-const {partner, name, dob}  = ram;
+// const {partner, name, dob}  = ram;
 
-console.log(partner, name, dob);
+// console.log(partner, name, dob);
 
 // const bio = (ram) =>{
-//     return `this is ${ram.name} born in ${ram.dob}`;
+    // return `this is ${ram.name} born in ${ram.dob}`;
 // }
 
+// ===========OR=====================
 
 // const bio = (ram) =>{
 //     const {name, dob} =ram;
@@ -257,8 +260,59 @@ console.log(partner, name, dob);
 // }
 
 
-const bio = ({name, dob}) =>{
-    return `this is ${name} born in ${dob}`;
+// ===========OR=====================
+
+// const bio = ({name, dob}) =>{
+//     return `this is ${name} born in ${dob}`;
+// }
+
+// console.log(bio(ram));
+
+
+
+
+
+// ===========DEFAULT=====================
+// const bio = ({name, dob = "N/A"}) =>{
+//     return `this is ${name} born in ${dob}`;
+// }
+
+// console.log(bio(ram));
+
+
+
+// ===========REST=====================
+const ram = {
+    name: "Ram",
+    dob: "23/3/1200",
+    pet: "dog",
+    degree: "BIT",
+    
+}
+console.log(ram); //just giving the output of the obj ram
+
+// const newRam = ram; // this is the shallow copy
+// ram.name ="Shyam"; //overriding the value of property name of the object called "ram"
+
+// console.log(newRam); //here the overriding still can be seen 
+
+const {partner, ...rest} = ram; /// using the rest method to destructure the object and also overriding the partner property
+
+
+console.log({partner, ...rest});
+
+
+//in case of destructuring two objects
+
+const career = {
+    job: " developer",
+    title: "Designer",
 }
 
-console.log(bio(ram));
+// const newRam = {ram, career}; 
+
+//to spread all of the property 
+
+const newRam = {...ram, ...career}; 
+
+console.log(newRam);
