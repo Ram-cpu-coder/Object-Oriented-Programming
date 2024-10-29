@@ -195,3 +195,70 @@ console.log(ramInfo);
 console.log(ramInfo.name);
 console.log(ramInfo.secret);// this wont be accessed by the instantaneious object as it is secret and it cannot be manipulated as well.
 
+
+// =========================================
+//Encapsulation 
+// bundling the data and restricting access
+
+
+//Abstraction
+// hiding the complex implementation details of an object and exposing only the essential features or interactions
+
+
+//Inheritence 
+// it is to inherit the properties from the parent element by the child element
+// const ram = {
+//     name: "Ram",
+//     dob: "23/3/1200",
+//     pet: "dog",
+//     degree: "BIT",
+// // }
+// class Human{
+//     constructor({name, dob, pet, degree}){
+//         this.name
+//         this.dob
+//         this.pet
+//         this.degree
+//     }
+//     bio(){
+//         return `this is ${this.name} was born in ${this.dob} has the ${this.degree}`;
+//     }
+// }
+
+// const RamObj = new Human(ram);
+// RamObj.bio();
+// console.log(RamObj);
+
+
+//Destructuring 
+
+const ram = {
+    name: "Ram",
+    dob: "23/3/1200",
+    pet: "dog",
+    degree: "BIT",
+}
+console.log(ram);
+console.log(ram.name);
+console.log(ram["name"]);
+
+const {partner, name, dob}  = ram;
+
+console.log(partner, name, dob);
+
+// const bio = (ram) =>{
+//     return `this is ${ram.name} born in ${ram.dob}`;
+// }
+
+
+// const bio = (ram) =>{
+//     const {name, dob} =ram;
+//     return `this is ${name} born in ${dob}`;
+// }
+
+
+const bio = ({name, dob}) =>{
+    return `this is ${name} born in ${dob}`;
+}
+
+console.log(bio(ram));
