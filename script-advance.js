@@ -485,68 +485,68 @@ console.log("Its working!");
 // ===================================================
 // Write a JavaScript program that creates a class called BankAccount with properties for account number, account holder name, and balance. Include methods to deposit, withdraw, and transfer money between accounts. Create multiple instances of the BankAccount class and perform operations such as depositing, withdrawing, and transferring money.
 
-class BankAccount {
-    constructor(accNumber, accHolderName, balance){
-        this.accNumber = accNumber;
-        this.accHolderName = accHolderName;
-        this.balance = balance;
-    }
+// class BankAccount {
+//     constructor(accNumber, accHolderName, balance){
+//         this.accNumber = accNumber;
+//         this.accHolderName = accHolderName;
+//         this.balance = balance;
+//     }
 
-    deposit(amount){
-        if(amount > 0){
-            this.balance += amount;
-            console.log(`You deposited $${amount} in Account Number ${this.accNumber} under the name of ${this.accHolderName} and your current balance is $${this.balance}.`);
-        }else{
-            console.log("The amount must be positive."); 
-        }
+//     deposit(amount){
+//         if(amount > 0){
+//             this.balance += amount;
+//             console.log(`You deposited $${amount} in Account Number ${this.accNumber} under the name of ${this.accHolderName} and your current balance is $${this.balance}.`);
+//         }else{
+//             console.log("The amount must be positive."); 
+//         }
      
-    }
+//     }
 
-    withdraw(amount){
-        if(amount > 0 && this.balance >= amount){
-            this.balance -= amount;
-            console.log(`You have withdrawn $${amount} from Account number ${this.accNumber} with name ${this.accHolderName} and your current balance is $${this.balance}.`);
-        }else if(amount > 0 && this.balance < amount){
-            console.log(`Sorry, you don't have enough balance!!!`);
+//     withdraw(amount){
+//         if(amount > 0 && this.balance >= amount){
+//             this.balance -= amount;
+//             console.log(`You have withdrawn $${amount} from Account number ${this.accNumber} with name ${this.accHolderName} and your current balance is $${this.balance}.`);
+//         }else if(amount > 0 && this.balance < amount){
+//             console.log(`Sorry, you don't have enough balance!!!`);
             
-        }else{
-            console.log(`Please enter the positive number!!!`);
+//         }else{
+//             console.log(`Please enter the positive number!!!`);
             
-        }
-    }
+//         }
+//     }
 
-    transfer(amount, targetAccount){
-        if(amount > 0 && this.balance >= amount){
-            this.balance -= amount;
-            targetAccount.balance += amount;
+//     transfer(amount, targetAccount){
+//         if(amount > 0 && this.balance >= amount){
+//             this.balance -= amount;
+//             targetAccount.balance += amount;
 
-            console.log(`Successful! You have transferred $${amount} from Account Number ${this.accNumber} to Account Number ${targetAccount.accNumber} and your current balance is $${this.balance}.`);  
-        }else if(this.balance < amount){
-            console.log(`Sorry! you don't have enough balance.`);
+//             console.log(`Successful! You have transferred $${amount} from Account Number ${this.accNumber} to Account Number ${targetAccount.accNumber} and your current balance is $${this.balance}.`);  
+//         }else if(this.balance < amount){
+//             console.log(`Sorry! you don't have enough balance.`);
             
-        }else{
-            console.log(`Please enter the positive number.`);
+//         }else{
+//             console.log(`Please enter the positive number.`);
             
-        }
-    }
+//         }
+//     }
 
-    displayBalance(){
-        return `Your Current balance is $${this.balance}.`; 
-    }
-}
+//     displayBalance(){
+//         return `Your Current balance is $${this.balance}.`; 
+//     }
+// }
 
-const ram = new BankAccount(231423, "Ram", 0);
-const shyam = new BankAccount(1324234, "Shyam", 200);
-const Kripa = new BankAccount(234567, "Kripa", 0);
+// const ram = new BankAccount(231423, "Ram", 0);
+// const shyam = new BankAccount(1324234, "Shyam", 200);
+// const Kripa = new BankAccount(234567, "Kripa", 0);
 
 
-Kripa.deposit(100);
-Kripa.withdraw(5);
-Kripa.transfer(50, ram);
+// Kripa.deposit(100);
+// Kripa.withdraw(5);
+// Kripa.transfer(50, ram);
 
-console.log(Kripa.displayBalance());
+// console.log(Kripa.displayBalance());
 
-Kripa.deposit(200);
+// Kripa.deposit(200);
 
 // ram.deposit(200);
 // // ram.withdraw(100);
@@ -562,20 +562,50 @@ Kripa.deposit(200);
 // Write a JavaScript program that creates a class called University with properties for university name and departments. Include methods to add a department, remove a department, and display all departments. Create an instance of the University class and add and remove departments.
 
 class University{
-    constructor(name, department){
+    constructor(name){
         this.name = name;
-        this.department = department;
+        this.department = [];
     }
-    displayDepartment(){
-        return `The name of the university is ${this.name} and it has the following departments: ${this.department}`
-    }
+    
     addDepartment(department){
+        if(!this.department.includes(department)){
+            this.department.push(department);
+            console.log(`${department} has been added.`);
+            
+        }
+    }
+    removeDepartment(department){
+        let index = this.department.indexOf(department);
+        if(this.department.length === 0){
+            return `No Departments added`
+        }else{
+            this.department.splice(index,1);
+            console.log(`${department} has been deleted.`);
+            
+        }
+    }
 
+    displayDepartment(){
+        if(this.department.length === 0){
+            console.log(`No Departments added`);
+        }else{
+            console.log(`University: ${this.name}`);
+            console.log(`Departments: ${this.department}`);
+        }
     }
 }
 
-const university1 = new University("ABC", "Science");
-console.log(university1.displayDepartment());
+const university1 = new University("ABC");
+university1.displayDepartment();
+university1.addDepartment("Science");
+university1.addDepartment("Math");
+university1.addDepartment("Biology");
+university1.displayDepartment();
+university1.removeDepartment("Science");
+university1.displayDepartment();
+
+university1.removeDepartment("Math");
+university1.displayDepartment();
 
 // ===================================================
 // Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
