@@ -613,59 +613,94 @@ console.log("Its working!");
 
 // ===================================================
 // Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
-class Product {
-    constructor(ID, name, price) {
-        this.Id = ID;
-        this.name = name;
-        this.price = price;
-    }
 
-    calculate(quantity) {
-        if (quantity >= 2) {
-            let newPrice = this.price * quantity;
-            console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
-        }
-    }
-}
+// class Product {
+//     constructor(ID, name, price) {
+//         this.Id = ID;
+//         this.name = name;
+//         this.price = price;
+//     }
 
-//subclass
-class PersonalCareProduct extends Product {
-    constructor(ID, name, price, warrantyPeriod) {
-        super(ID, name, price);
-        this.warrantyPeriod = warrantyPeriod;
-    }
+//     calculate(quantity) {
+//         if (quantity >= 2) {
+//             let newPrice = this.price * quantity;
+//             console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
+//         }
+//     }
+// }
 
-    calculate(quantity, warrantyPeriod) {
-         let newPrice = this.price * quantity;
-         if (warrantyPeriod === 12) {
+// //subclass
+// class PersonalCareProduct extends Product {
+//     constructor(ID, name, price, warrantyPeriod) {
+//         super(ID, name, price);
+//         this.warrantyPeriod = warrantyPeriod;
+//     }
 
-            newPrice = newPrice + (2 / 100 * newPrice);
+//     calculate(quantity, warrantyPeriod) {
+//          let newPrice = this.price * quantity;
+//          if (warrantyPeriod === 12) {
 
-            console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
-            console.log(`You have the warranty period of ${warrantyPeriod} months.`);
+//             newPrice = newPrice + (2 / 100 * newPrice);
 
-        } else if (warrantyPeriod === 24) {
-            newPrice = newPrice + (4 / 100 * newPrice);
-            console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
-            console.log(`You have the warranty period of ${warrantyPeriod} months.`);
-        } else if (warrantyPeriod === 36){
-            newPrice = newPrice + (5 / 100 * newPrice);
-            console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
-            console.log(`You have the warranty period of ${warrantyPeriod} months.`);
-        }else{
-            console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
-        }
-    }
-}
-const apple = new Product(233, "Apple", 23);
-apple.calculate(2);
+//             console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
+//             console.log(`You have the warranty period of ${warrantyPeriod} months.`);
+
+//         } else if (warrantyPeriod === 24) {
+//             newPrice = newPrice + (4 / 100 * newPrice);
+//             console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
+//             console.log(`You have the warranty period of ${warrantyPeriod} months.`);
+//         } else if (warrantyPeriod === 36){
+//             newPrice = newPrice + (5 / 100 * newPrice);
+//             console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
+//             console.log(`You have the warranty period of ${warrantyPeriod} months.`);
+//         }else{
+//             console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
+//         }
+//     }
+// }
+// const apple = new Product(233, "Apple", 23);
+// apple.calculate(2);
 
 
 
-const personalCare = new PersonalCareProduct(4545, "Cream", 20);
-personalCare.calculate(2, 12);
-personalCare.calculate(4);
-personalCare.calculate(2, 36);
+// const personalCare = new PersonalCareProduct(4545, "Cream", 20);
+// personalCare.calculate(2, 12);
+// personalCare.calculate(4);
+// personalCare.calculate(2, 36);
 
 // ===================================================
 // Write a JavaScript program that creates a class called 'Animal' with properties for species and sound. Include a method to make the animal's sound. Create a subclass called 'Dog' that inherits from the 'Animal' class and adds an additional property for color. Override the make sound method to include the dog's color. Create an instance of the 'Dog' class and make it make its sound.
+
+class Animal {
+    constructor(species, sound) {
+        this.species = species;
+        this.sound = sound;
+    }
+
+    animalSound() {
+        return `The sound of ${this.species} is ${this.sound}.`
+    }
+}
+
+
+//subclass
+class Dog extends Animal {
+    constructor(species, sound, colour){
+        super(species, sound);
+        this.colour = colour;
+    }
+
+    animalColour(){
+        return `The colour of ${this.species} is ${this.colour}.`
+    }
+}
+
+const animal1 = new Animal("dog", "how-how");
+console.log(animal1.animalSound());
+
+
+const Dog1 = new Dog("German-Shepherd", "how-how", "Grey");
+console.log(Dog1.animalSound());
+console.log(Dog1.animalColour());
+
+// ===================================================
