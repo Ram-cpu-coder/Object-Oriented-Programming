@@ -578,9 +578,11 @@ class University{
         let index = this.department.indexOf(department);
         if(this.department.length === 0){
             return `No Departments added`
-        }else{
+        }else if(index >- 1){
             this.department.splice(index,1);
-            console.log(`${department} has been deleted.`);
+            console.log(`${department} has been deleted.`); 
+        }else{
+            console.log(`${department} doesnot exists.`);
             
         }
     }
@@ -604,7 +606,7 @@ university1.displayDepartment();
 university1.removeDepartment("Science");
 university1.displayDepartment();
 
-university1.removeDepartment("Math");
+university1.removeDepartment("dfklgjh");
 university1.displayDepartment();
 
 // ===================================================
