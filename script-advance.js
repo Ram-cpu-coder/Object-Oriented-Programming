@@ -234,7 +234,7 @@ console.log("Its working!");
 //         this.degree = degree;
 //     }
 
-   
+
 //     bio(){
 //         return `this is ${this.name} who was born in ${this.dob} has the ${this.degree} degree.`;
 //     }
@@ -287,7 +287,7 @@ console.log("Its working!");
 // console.log(partner, name, dob);
 
 // const bio = (ram) =>{
-    // return `this is ${ram.name} born in ${ram.dob}`;
+// return `this is ${ram.name} born in ${ram.dob}`;
 // }
 
 // ===========OR=====================
@@ -325,7 +325,7 @@ console.log("Its working!");
 //     dob: "23/3/1200",
 //     pet: "dog",
 //     degree: "BIT",
-    
+
 // }
 // console.log(ram); //just giving the output of the obj ram
 
@@ -428,7 +428,7 @@ console.log("Its working!");
 //         super(make, model, year);
 //         this.noOfDoors = noOfDoors; 
 //     }
-    
+
 //     diplayCarDetails(){
 //         return `${this.make}, ${this.model}, ${this.year}, ${this.noOfDoors}`;
 //     }
@@ -499,7 +499,7 @@ console.log("Its working!");
 //         }else{
 //             console.log("The amount must be positive."); 
 //         }
-     
+
 //     }
 
 //     withdraw(amount){
@@ -508,10 +508,10 @@ console.log("Its working!");
 //             console.log(`You have withdrawn $${amount} from Account number ${this.accNumber} with name ${this.accHolderName} and your current balance is $${this.balance}.`);
 //         }else if(amount > 0 && this.balance < amount){
 //             console.log(`Sorry, you don't have enough balance!!!`);
-            
+
 //         }else{
 //             console.log(`Please enter the positive number!!!`);
-            
+
 //         }
 //     }
 
@@ -523,10 +523,10 @@ console.log("Its working!");
 //             console.log(`Successful! You have transferred $${amount} from Account Number ${this.accNumber} to Account Number ${targetAccount.accNumber} and your current balance is $${this.balance}.`);  
 //         }else if(this.balance < amount){
 //             console.log(`Sorry! you don't have enough balance.`);
-            
+
 //         }else{
 //             console.log(`Please enter the positive number.`);
-            
+
 //         }
 //     }
 
@@ -561,54 +561,111 @@ console.log("Its working!");
 
 // Write a JavaScript program that creates a class called University with properties for university name and departments. Include methods to add a department, remove a department, and display all departments. Create an instance of the University class and add and remove departments.
 
-class University{
-    constructor(name){
+// class University{
+//     constructor(name){
+//         this.name = name;
+//         this.department = [];
+//     }
+
+//     addDepartment(department){
+//         if(!this.department.includes(department)){
+//             this.department.push(department);
+//             console.log(`${department} has been added.`);
+
+//         }
+//     }
+//     removeDepartment(department){
+//         let index = this.department.indexOf(department);
+//         if(this.department.length === 0){
+//             return `No Departments added`
+//         }else if(index >- 1){
+//             this.department.splice(index,1);
+//             console.log(`${department} has been deleted.`); 
+//         }else{
+//             console.log(`${department} doesnot exists.`);
+
+//         }
+//     }
+
+//     displayDepartment(){
+//         if(this.department.length === 0){
+//             console.log(`No Departments added`);
+//         }else{
+//             console.log(`University: ${this.name}`);
+//             console.log(`Departments:`);
+//             this.department.forEach((department)=>{console.log(` ${department}`);
+//             })   
+//         }
+//     }
+// }
+
+// const university1 = new University("ABC");
+// university1.displayDepartment();
+// university1.addDepartment("Science");
+// university1.addDepartment("Math");
+// university1.addDepartment("Biology");
+// university1.displayDepartment();
+// university1.removeDepartment("Science");
+// university1.displayDepartment();
+
+// university1.removeDepartment("dfklgjh");
+// university1.displayDepartment();
+
+// ===================================================
+// Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
+class Product {
+    constructor(ID, name, price) {
+        this.Id = ID;
         this.name = name;
-        this.department = [];
-    }
-    
-    addDepartment(department){
-        if(!this.department.includes(department)){
-            this.department.push(department);
-            console.log(`${department} has been added.`);
-            
-        }
-    }
-    removeDepartment(department){
-        let index = this.department.indexOf(department);
-        if(this.department.length === 0){
-            return `No Departments added`
-        }else if(index >- 1){
-            this.department.splice(index,1);
-            console.log(`${department} has been deleted.`); 
-        }else{
-            console.log(`${department} doesnot exists.`);
-            
-        }
+        this.price = price;
     }
 
-    displayDepartment(){
-        if(this.department.length === 0){
-            console.log(`No Departments added`);
-        }else{
-            console.log(`University: ${this.name}`);
-            console.log(`Departments: ${this.department}`);
+    calculate(quantity) {
+        if (quantity >= 2) {
+            let newPrice = this.price * quantity;
+            console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
         }
     }
 }
 
-const university1 = new University("ABC");
-university1.displayDepartment();
-university1.addDepartment("Science");
-university1.addDepartment("Math");
-university1.addDepartment("Biology");
-university1.displayDepartment();
-university1.removeDepartment("Science");
-university1.displayDepartment();
+//subclass
+class PersonalCareProduct extends Product {
+    constructor(ID, name, price, warrantyPeriod) {
+        super(ID, name, price);
+        this.warrantyPeriod = warrantyPeriod;
+    }
 
-university1.removeDepartment("dfklgjh");
-university1.displayDepartment();
+    calculate(quantity, warrantyPeriod) {
+         let newPrice = this.price * quantity;
+         if (warrantyPeriod === 12) {
+
+            newPrice = newPrice + (2 / 100 * newPrice);
+
+            console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
+            console.log(`You have the warranty period of ${warrantyPeriod} months.`);
+
+        } else if (warrantyPeriod === 24) {
+            newPrice = newPrice + (4 / 100 * newPrice);
+            console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
+            console.log(`You have the warranty period of ${warrantyPeriod} months.`);
+        } else if (warrantyPeriod === 36){
+            newPrice = newPrice + (5 / 100 * newPrice);
+            console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
+            console.log(`You have the warranty period of ${warrantyPeriod} months.`);
+        }else{
+            console.log(`The total price of ${quantity} ${this.name}(s) is $${newPrice}.`);
+        }
+    }
+}
+const apple = new Product(233, "Apple", 23);
+apple.calculate(2);
+
+
+
+const personalCare = new PersonalCareProduct(4545, "Cream", 20);
+personalCare.calculate(2, 12);
+personalCare.calculate(4);
+personalCare.calculate(2, 36);
 
 // ===================================================
-// Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
 // Write a JavaScript program that creates a class called 'Animal' with properties for species and sound. Include a method to make the animal's sound. Create a subclass called 'Dog' that inherits from the 'Animal' class and adds an additional property for color. Override the make sound method to include the dog's color. Create an instance of the 'Dog' class and make it make its sound.
